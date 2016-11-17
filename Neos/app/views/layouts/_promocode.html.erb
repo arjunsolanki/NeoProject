@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+    <div class="notice" style="color: red"><%= flash[:notice] %></div>
+<% end %>
+
+<% Promotion.where(:status => 1).each do |promo| %>
+  <div class="row">
+    <div class="col-xs-4"><%= promo.name %></div>
+    <div class="col-xs-4"><%= promo.code %></div>
+  </div>
+<% end %>

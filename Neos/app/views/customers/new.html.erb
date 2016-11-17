@@ -1,0 +1,43 @@
+<%= form_for :customer, url: customers_path do |f| %>
+    <% if @customer.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@customer.errors.count, "error") %> prohibited
+            this customer from being saved:
+          </h2>
+          <ul>
+            <% @customer.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :cardno %><br>
+      <%= f.text_field :cardno %>
+    </p>
+    <p>
+      <%= f.label :address %><br>
+      <%= f.text_area :address %>
+    </p>
+    <p>
+      <%= f.submit 'Proceed' %>
+    </p>
+    <p>
+        <%= "#{active_order.order_items.size} Items added and you have to pay ( #{number_to_currency active_order.total} )" %>
+    </p>
+<% end %>
+<p>
+    <%= link_to 'Back', root_path %>
+</p>
+<p>
+    <%= link_to 'Add another promo code', customers_promotion_path %>
+</p>

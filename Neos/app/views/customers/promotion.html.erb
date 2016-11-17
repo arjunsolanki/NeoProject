@@ -1,0 +1,10 @@
+<%= form_for :promotion, :url => url_for(:controller => 'customers', :action => 'checkpromo') do |f| %>
+    <p>
+      <%= f.label 'Promotion Code' %><br>
+      <%= f.text_field :code %>
+    </p>
+    <p>
+      <%= f.submit 'Proceed' %>
+    </p>
+<% end %>
+<%= link_to 'Back', root_path %>
